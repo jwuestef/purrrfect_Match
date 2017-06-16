@@ -1,7 +1,7 @@
 // =========================================================================
 //      SETUP
 // =========================================================================
-
+require('dotenv').config({path: __dirname + '/.env'});
 var express        = require("express"),
     app            = express(),
     bodyParser     = require("body-parser"),
@@ -24,8 +24,11 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 mongoose.Promise = global.Promise;
+var url = process.env.DATABASEURL || "mongodb://localhost/purrrfectMatch"
+mongoose.connect(url);
 // mongoose.connect("mongodb://localhost/purrrfectMatch");
-mongoose.connect("mongodb://jwuestef:meow@ds129402.mlab.com:29402/purrrfect-match");
+// mongoose.connect("mongodb://jwuestef:meow@ds129402.mlab.com:29402/purrrfect-match");
+
 // seedDB();  //seed the DB
 
 // PASSPORT CONFIGURATION
@@ -420,6 +423,6 @@ function checkCommentOwnership(req, res, next){
 //      START SERVER
 // =========================================================================
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.PORT, function(){
     console.log("The purrrfectMatch server has started!");
 });
