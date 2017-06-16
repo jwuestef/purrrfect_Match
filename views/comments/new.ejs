@@ -3,9 +3,6 @@
 <% include ../partials/navbar %>
 
 
-
-<a id="goBackButton" class="btn btn-default btn-lg" href="/back" onclick="history.go(-1)">Go Back</a>
-
 <h1 id="headerNewCat">Add New Comment to <%= cat.name %></h1>
 <form action="/cats/<%= cat._id %>/comments" method="POST">
 	<div class="form-group">
