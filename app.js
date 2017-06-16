@@ -24,7 +24,8 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/purrrfectMatch");
+// mongoose.connect("mongodb://localhost/purrrfectMatch");
+mongoose.connect("mongodb://jwuestef:meow@ds129402.mlab.com:29402/purrrfect-match");
 // seedDB();  //seed the DB
 
 // PASSPORT CONFIGURATION
