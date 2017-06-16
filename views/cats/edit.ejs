@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+
+<% include ../partials/navbar %>
+
+
+
+<a id="goBackButton" class="btn btn-default btn-lg" href="/back" onclick="history.go(-1)">Go Back</a>
+
+<h1 id="headerNewCat">Edit <%= cat.name %></h1>
+<form action="/cats/<%= cat._id %>?_method=PUT" method="POST">
+	<div class="form-group">
+		<label for="newName">Name:</label>
+		<input type="text" class="form-control" id="newName" name="cat[name]" value="<%= cat.name %>" required>
+	</div>
+	<div class="form-group">
+		<label for="newImage">Image URL:</label>
+		<input type="text" class="form-control" id="newImage" name="cat[image]" value="<%= cat.image %>" required>
+	</div>
+	<div class="form-group">
+		<label for="gender">Gender:</label>
+		<select name="cat[gender]" id="gender" class="form-control" value="<%= cat.gender %>">
+			<option value="male">Male</option> 
+			<option value="female">Female</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="newAge">Age:</label>
+		<input type="number" class="form-control" id="newAge" name="cat[age]" value="<%= cat.age %>" step="0.1" min="0" max="50" required>
+	</div>
+	<div class="form-group">
+		<label for="hair">Hair Style:</label>
+		<select name="cat[hair]" id="hair" class="form-control" value="<%= cat.hair %>">
+			<option value="short">Short</option> 
+			<option value="long">Long</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="newBreed">Breed:</label>
+		<input type="text" class="form-control" id="newBreed" name="cat[breed]" value="<%= cat.breed %>" required>
+	</div>
+	<div class="form-group">
+		<label for="newCost">Cost: <em>(US $)</em></label>
+		<input type="number" class="form-control" id="newCost" name="cat[cost]" value="<%= cat.cost %>" step="0.01" min="0" max="50" required>
+	</div>
+	<div class="form-group">
+		<label for="newOwnerContact">Owner Contact Info:</label>
+		<input type="text" class="form-control" id="newOwnerContact" name="cat[ownerContact]" value="<%= cat.ownerContact %>" required>
+	</div>
+	<div class="form-group">
+		<label for="newDescription">Description:</label>
+		<textarea class="form-control" rows="5" id="newDescription" name="cat[description]" value="<%= cat.description %>" required></textarea>
+	</div>
+	<hr id="hrEditCat">
+	<div class="form-group">
+		<input type="submit" class="btn btn-default btn-lg" value="Submit">
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script>
+    	var genderVar = "<%= cat.gender %>";
+    	genderVar = genderVar.charAt(0).toUpperCase() + genderVar.slice(1);
+    	$('#gender option:contains(' + genderVar + ')').prop({selected: true});
+
+    	var hairVar = "<%= cat.hair %>";
+    	hairVar = hairVar.charAt(0).toUpperCase() + hairVar.slice(1);
+    	$('#hair option:contains(' + hairVar + ')').prop({selected: true});
+
+    	var descriptionVar = "<%= cat.description %>";
+    	$("#newDescription").val(descriptionVar);
+	</script>
+</form>
+
+
+
+
+<% include ../partials/footer %>
+

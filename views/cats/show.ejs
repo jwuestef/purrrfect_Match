@@ -1,0 +1,85 @@
+<% include ../partials/header %>
+
+<% include ../partials/navbar %>
+
+<a id="goBackButton" class="btn btn-default btn-lg" href="/cats">Go Back</a>
+
+
+<h1 id="headerShowCat"><%=cat.name%></h1>
+
+<div class="container">
+
+
+	<div class="row">
+		<div class="col-md-3 sidebar-box">
+			<% if(cat.gender.toLowerCase() === "male"){ %>
+				<h1>He is...</h1>
+			<% } else { %>
+				<h1>She is...</h1>
+			<% } %>
+			<ul class="list-group">
+				<% if(cat.age < 1){ %>
+					<li class="list-group=item">Less than 1 year old</li>
+				<% } else { %>
+					<li class="list-group=item"><%= cat.age %> years old</li>
+				<% } %>
+				<li class="list-group=item"><%= cat.hair.charAt(0).toUpperCase() + cat.hair.slice(1) %> hair</li>
+				<li class="list-group=item"><%= cat.breed %></li>
+				<li class="list-group=item">$ <%= cat.cost %></li>
+				<li class="list-group=item">Contact the owner at: <br><%= cat.ownerContact %></li>
+			</ul>
+		</div>
+
+		<div class="col-md-8 show-box">
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%= cat.image %>">
+				<div class="caption-full">
+					<p>&nbsp;&nbsp;&nbsp;&nbsp; <%= cat.description %> &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-paw" aria-hidden="true"></i> </p>
+				</div>
+			</div>
+			<p><em>Added by: <%= cat.creator.username %></em>
+				<% if(currentUser && cat.creator.id.equals(currentUser._id)) { %>
+					<form action="/cats/<%= cat._id %>?_method=DELETE" method="POST">
+						<button  class="btn btn-danger btn-sm pull-right">Delete</button>
+						<a href="/cats/<%= cat._id %>/edit" class="btn btn-warning btn-sm pull-right">Edit</a>
+					</form>
+				<% } %>
+			</p>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="well commentShowBox">
+			<div class="text-right">
+				<a href="/cats/<%=cat._id%>/comments/new" class="btn btn-default btn-lg">Add New Comment</a>
+			</div>
+			<% cat.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+					<hr id="hrCommentBox">
+			    		<p>
+			    			<span><%= comment.author.username %></span><br>
+			    			<% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+				    			<form action="/cats/<%= cat._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+									<button class="btn btn-danger btn-sm pull-right">Delete</button>
+				    				<a class="btn btn-warning btn-sm pull-right" href="/cats/<%= cat._id %>/comments/<%= comment._id %>/edit">Edit</a>
+				    			</form>
+			    			<% } %>
+			    			<br> 
+			    			<%= comment.text %>
+			    		</p>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+
+
+</div>
+
+
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<% include ./partials/navbar %>
+
+
+<a id="goBackButton" class="btn btn-default btn-lg" href="/back" onclick="history.go(-1)">Go Back</a>
+
+<h1 id="headerRegister">Sign up</h1>
+
+<form action="/register" method="POST">
+	<div class="form-group">
+		<label for="registerUsername">Username:</label>
+		<input type="text" class="form-control" id="registerUsername" name="username" placeholder="username" required>
+	</div>
+	<div class="form-group">
+		<label for="registerPassword">Password:</label>
+		<input type="password" class="form-control" id="registerPassword" name="password" placeholder="password" required>
+	</div>
+	<div class="form-group">
+		<input type="submit" class="btn btn-default btn-lg" value="Register!">
+	</div>
+</form>
+
+
+<% include ./partials/footer %>

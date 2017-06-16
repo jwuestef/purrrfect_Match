@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<% include ../partials/navbar %>
+
+
+
+<a id="goBackButton" class="btn btn-default btn-lg" href="/back" onclick="history.go(-1)">Go Back</a>
+
+<h1 id="headerNewCat">Add New Comment to <%= cat.name %></h1>
+<form action="/cats/<%= cat._id %>/comments" method="POST">
+	<div class="form-group">
+		<label for="newComment">Comment:</label>
+		<textarea class="form-control" rows="5" id="newComment" name="comment[text]" placeholder="Comment" required></textarea>
+	</div>
+	<hr id="hrNewComment">
+	<div class="form-group">
+		<input type="submit" class="btn btn-default btn-lg" value="Add!">
+	</div>
+</form>
+
+
+
+
+<% include ../partials/footer %>
+

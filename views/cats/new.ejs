@@ -1,0 +1,63 @@
+<% include ../partials/header %>
+
+<% include ../partials/navbar %>
+
+
+
+<a id="goBackButton" class="btn btn-default btn-lg" href="/back" onclick="history.go(-1)">Go Back</a>
+
+<h1 id="headerNewCat">Add a Cat</h1>
+<form action="/cats" method="POST">
+	<div class="form-group">
+		<label for="newName">Name:</label>
+		<input type="text" class="form-control" id="newName" name="name" placeholder="Name" required>
+	</div>
+	<div class="form-group">
+		<label for="newImage">Image URL:</label>
+		<input type="text" class="form-control" id="newImage" name="image" placeholder="Image URL" required>
+	</div>
+	<div class="form-group">
+		<label for="gender">Gender:</label>
+		<select name="gender" id="gender" class="form-control">
+			<option value="male" selected>Male</option> 
+			<option value="female">Female</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="newAge">Age:</label>
+		<input type="number" class="form-control" id="newAge" name="age" placeholder="0" step="0.1" min="0" max="50" required>
+	</div>
+	<div class="form-group">
+		<label for="hair">Hair Style:</label>
+		<select name="hair" id="hair" class="form-control">
+			<option value="short" selected>Short</option> 
+			<option value="long">Long</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="newBreed">Breed:</label>
+		<input type="text" class="form-control" id="newBreed" name="breed" placeholder="Breed" required>
+	</div>
+	<div class="form-group">
+		<label for="newCost">Cost: <em>(US $)</em></label>
+		<input type="number" class="form-control" id="newCost" name="cost" placeholder="0.00" step="0.01" min="0" max="50" required>
+	</div>
+	<div class="form-group">
+		<label for="newOwnerContact">Owner Contact Info:</label>
+		<input type="text" class="form-control" id="newOwnerContact" name="ownerContact" placeholder="Phone or email" required>
+	</div>
+	<div class="form-group">
+		<label for="newDescription">Description:</label>
+		<textarea class="form-control" rows="5" id="newDescription" name="description" placeholder="Description" required></textarea>
+	</div>
+	<hr id="hrNewCat">
+	<div class="form-group">
+		<input type="submit" class="btn btn-default btn-lg" value="Add!">
+	</div>
+</form>
+
+
+
+
+<% include ../partials/footer %>
+

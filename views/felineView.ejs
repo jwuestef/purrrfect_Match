@@ -1,0 +1,171 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+	  	<meta charset="UTF-8">
+	  	<meta name="description" content="purrrfect Match, the ultimate human-feline matchmaking service.">
+	  	<meta name="keywords" content="cats, purrrfect, match, purrrfectMatch, matchmaking">
+	  	<meta name="author" content="Jeremy Wuestefeld">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  	<meta name="theme-color" content="#ffffff">
+	  	<meta name="msapplication-TileColor" content="#ffffff">
+
+		<title>purrrfect Match</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lobster+Two:400,400i,700,700i" rel="stylesheet">
+		
+		<script type="text/javascript">
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"57x57\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-57x57.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"60x60\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-60x60.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"72x72\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-72x72.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"76x76\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-76x76.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"114x114\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-114x114.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"120x120\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-120x120.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"144x144\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-144x144.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"152x152\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-152x152.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"apple-touch-icon\" size=\"180x180\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/apple-icon-180x180.png\"/>");
+
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"icon\" type=\"image/png\" size=\"16x16\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/favicon-16x16.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"icon\" type=\"image/png\" size=\"32x32\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/favicon-32x32.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"icon\" type=\"image/png\" size=\"96x96\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/favicon-96x96.png\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"icon\" type=\"image/png\" size=\"192x192\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/favicon-192x192.png\"/>");
+
+			document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"manifest\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/favicon/manifest.json\"/>");
+			document.getElementsByTagName('head')[0].innerHTML+=("<link name=\"msapplication-TileImage\" content=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/ms-icon-144x144.png\"/>");
+
+			//document.getElementsByTagName('head')[0].innerHTML+=("<link rel=\"stylesheet\" type=\"text/css\" href=\""+document.URL.substring(0,document.URL.lastIndexOf("/cats"))+"/css/main.css\"/>");
+		</script>
+
+		<style type="text/css">
+body, html {
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      background:#fff;
+      text-align: center;
+      -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      transition: opacity 400ms;
+}
+
+
+.demo4 .bg {
+  width: 800px;
+  height: 800px;
+  display: inline-block;
+}
+
+		</style>
+	</head>
+	<body>
+		<a id="goBackButton" class="btn btn-default btn-lg" href="/back" onclick="history.go(-1)">Go Back</a>
+
+
+
+
+		<div class="bg2 bg" data-ibg-bg="img/bg.jpg"></div>
+
+
+    	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+
+	</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js demo4">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Create an Interactive Background with jQuery Interactive BG</title>
+		<meta name="description" content="Parallax comes in many forms. The most common one is a parallax effect that reacts to the user’s scroll behavior." />
+		<meta name="keywords" content="parallax, parallax background, interactive bg, jquery parallax" />
+		<meta name="author" content="Author for Onextrapixel" />
+
+
+
+
+
+    	
+
+
+	
+	<style type="text/css">
+		body, html {
+			margin: 0;
+			-webkit-font-smoothing: antialiased;
+			background:rbg(13, 131, 201);
+			text-align: center;
+			-webkit-transition: opacity 400ms;
+			-moz-transition: opacity 400ms;
+			transition: opacity 400ms;
+		}
+		.bg {
+			width: 200%;
+			height: 2000px;
+			display: inline-block;
+		}
+	</style>
+
+
+	</head>
+	<body>
+	  
+		
+    	<div class="main">
+    	  <div class="bg" data-ibg-bg="img/bg.jpg"></div>
+    	</div>
+
+	    <img src="img/fish.gif" class="fish" alt="Fish 1" />
+	    <img src="img/fish.gif" class="fish" alt="Fish 2" />
+	    <img src="img/fish.gif" class="fish" alt="Fish 3" />
+
+
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+
+    	<script type="text/javascript" src="js/jquery.interactive_bg.js"></script>
+    	<script type="text/javascript">
+	        $(".bg").interactive_bg({
+				strength: 1750,
+				scale: 1.0,
+				contain: false
+	        });
+      	</script>
+
+      	<script src="js/jquery.moving-bubble.js"></script>
+      	<script type="text/javascript">
+      		$(document).ready(function () {
+
+				//Start moving fish with default options
+				//$('.fish').startMoving();
+				$('.fish').movingBubble().click(function(){$(this).remove();});
+
+				//Start moving fish with options
+				//maxHeight = height bound for moving
+				//maxWidth = width bound for moving
+				//minDuration = minimun length of animation
+				//deltaDuration = maximum random number to be added to the minDuration
+				//$('#block').startMoving({ maxHeight: 400, maxWidth: 300, minDuration: 3000, deltaDuration: 1 });
+				$('.fish').movingBubble({ maxHeight: 1500, maxWidth: 2000, minDuration: 3000, deltaDuration: 1 }).click(function(){$(this).remove();});
+				$(".fish").on("click", function() {
+					if($(".fish").length == 0) { alert("You won a treat!")}
+				})
+			});
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				window.scrollTo( screen.width/2, screen.height/2 );
+				alert("There are 3 goldfish swimming around. Catch all three by repeatedly clicking on them to win a treat!")
+			});
+		</script>
+	</body>
+</html>

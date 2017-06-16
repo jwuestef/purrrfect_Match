@@ -1,0 +1,280 @@
+<% include ../partials/header %>
+
+<% include ../partials/navbar %>
+
+
+<a id="goBackButton" class="btn btn-default btn-lg" href="/back" onclick="history.go(-1)">Go Back</a>
+
+<section id="main-display-area">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 filter-box">
+				<a href="/cats/new" class="btn btn-default btn-lg">Add a Cat</a>
+				<hr id="hrAfterAddNewCat">
+
+				<h3>Filter Options:</h3>
+
+				<br>
+
+				<div class="form-group">
+
+					<label for="filterGender">Gender:</label>
+					<select name="cat[gender]" id="filterGender" class="form-control">
+						<option value="eitherGender">No Preference</option> 
+						<option value="male">Male</option> 
+						<option value="female">Female</option>
+					</select>
+
+					<br>
+
+					<label for="filterAgeLow">Age:</label>
+					<input type="number" class="form-control" id="filterAgeLow" name="cat[age]" step="0.1" min="0" max="50" value="0"><span>&nbsp;&nbsp;&nbsp; <em>to</em> &nbsp;&nbsp;&nbsp;</span><input type="number" class="form-control" id="filterAgeHigh" name="cat[age]" step="0.1" min="0" max="50" value="50">
+
+					<br>
+					<br>
+
+					<label for="filterHair">Hair Style:</label>
+					<select name="cat[hair]" id="filterHair" class="form-control">
+						<option value="allHair">No Preference</option> 
+						<option value="short">Short</option> 
+						<option value="long">Long</option>
+					</select>
+
+					<br>
+
+					<label for="filterBreed">Breed:</label>
+					<input type="text" class="form-control" id="filterBreed" name="cat[breed]">
+
+					<br>
+
+					<label for="filterCostLow">Cost: <em>(US $)</em></label>
+					<input type="number" class="form-control" id="filterCostLow" name="cat[cost]" step="0.01" min="0" max="50" value="0"><span>&nbsp;&nbsp;&nbsp; <em>to</em> &nbsp;&nbsp;&nbsp;</span><input type="number" class="form-control" id="filterCostHigh" name="cat[cost]" step="0.01" min="0" max="50" value="50">
+
+
+				</div>
+
+
+
+
+
+			</div>
+
+
+			<div class="col-sm-1"></div>
+			<div class="col-sm-8 content-box">
+				<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+				<% cats.forEach(function(cat){ %>
+					<div class="col-md-3 col-sm-6"  data-gender="<%= cat.gender %>"
+													data-age="<%= cat.age %>"
+													data-hair="<%= cat.hair %>"
+													data-breed="<%= cat.breed.toLowerCase() %>"
+													data-cost="<%= cat.cost %>"
+													style="display: block">
+						<div class="thumbnail"><a href=""></a>
+							<img src="<%= cat.image %>">
+							<div class="caption">
+								<% if (cat.gender.toLowerCase() === "female") { %>
+									<h4 style="color: deeppink"><%= cat.name %></h4>
+								<% } else if (cat.gender.toLowerCase() === "male") { %>
+									<h4 style="color: dodgerblue"><%= cat.name %></h4>
+								<% } %>
+							</div>
+							<p>
+								<a href="/cats/<%= cat._id %>" class="btn btn-primary">More Info</a>
+							</p>
+						</div>
+					</div>
+					<% }); %>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+</section>
+
+
+
+
+<% include ../partials/footer %>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		// $("#filterGender").change(updateShowCats);
+		// $("#filterAgeLow").on("blur", updateShowCats);
+		// $("#filterAgeHigh").on("blur", updateShowCats);
+		// $("#filterHair").change(updateShowCats);
+		// $("#filterBreed").change(updateShowCats);
+		// $("#filterCostLow").on("blur", updateShowCats);
+		// $("#filterCostHigh").on("blur", updateShowCats);
+
+
+		// function updateShowCats() {
+
+
+		// 		if( $("#filterGender").val() == "male" ) {
+		// 			$("div[style='display:block'][data-gender='male']").show("slideUp");
+		// 			$("div[style='display:block'][data-gender='female']").hide("slideUp");
+		// 		} else if( $("#filterGender").val() == "female") {
+		// 			$("div[style='display:block'][data-gender='female']").show("slideUp");
+		// 			$("div[style='display:block'][data-gender='male']").hide("slideUp");
+		// 		} else if( $("#filterGender").val() == "eitherGender") {
+		// 			$("div[style='display:block'][data-gender='female']").show("slideUp");
+		// 			$("div[style='display:block'][data-gender='male']").show("slideUp");
+		// 		}
+
+
+		// 		var ageLower = $("#filterAgeLow").val();
+		// 		$("div[data-age]").filter(function() {
+		// 			if($(this).data("age") < ageLower) {
+		// 				$(this).hide("slideUp");
+		// 			} else {
+		// 				$(this).show("slideUp");
+		// 			}
+		// 		});
+
+
+		// 		var ageHigher = $("#filterAgeHigh").val();
+		// 		$("div[data-age]").filter(function() {
+		// 			if($(this).data("age") > ageHigher) {
+		// 				$(this).hide("slideUp");
+		// 			} else {
+		// 				$(this).show("slideUp");
+		// 			}
+		// 		});
+
+
+		// 		if( $("#filterHair").val() == "short" ) {
+		// 			$("div[data-hair='short']").show("slideUp");
+		// 			$("div[data-hair='long']").hide("slideUp");
+		// 		} else if( $("#filterHair").val() == "long") {
+		// 			$("div[data-hair='long']").show("slideUp");
+		// 			$("div[data-hair='short']").hide("slideUp");
+		// 		} else if( $("#filterHair").val() == "allHair") {
+		// 			$("div[data-hair='short']").show("slideUp");
+		// 			$("div[data-hair='long']").show("slideUp");
+		// 		}
+
+
+		// 		var breedVal = $("#filterBreed").val().toLowerCase();
+		// 		if(breedVal.length>0){
+		// 			$("div[data-breed]").hide("slideUp");
+		// 			var whatImLookingFor = "div[data-breed='"+breedVal+"']"
+		// 			$(whatImLookingFor).show("slideUp");
+		// 		} else {
+		// 			$("div[data-breed]").show("slideUp");
+		// 		}
+
+
+		// 		var costLower = $("#filterCostLow").val();
+		// 		$("div[data-cost]").filter(function() {
+		// 			if($(this).data("cost") < costLower) {
+		// 				$(this).hide("slideUp");
+		// 			} else {
+		// 				$(this).show("slideUp");
+		// 			}
+		// 		});
+
+
+		// 		var costHigher = $("#filterCostHigh").val();
+		// 		$("div[data-cost]").filter(function() {
+		// 			if($(this).data("cost") > costHigher) {
+		// 				$(this).hide("slideUp");
+		// 			} else {
+		// 				$(this).show("slideUp");
+		// 			}
+		// 		});
+
+		// } //end of function updateShowCats
+
+
+		$("#filterGender").change(function() {
+			if( $("#filterGender").val() == "male" ) {
+				$("div[style='display: block'][data-gender='male']").show("slideUp");
+				$("div[style='display: block'][data-gender='female']").hide("slideUp");
+			} else if( $("#filterGender").val() == "female") {
+				$("div[style='display: block'][data-gender='female']").show("slideUp");
+				$("div[style='display: block'][data-gender='male']").hide("slideUp");
+			} else if( $("#filterGender").val() == "eitherGender") {
+				$("div[style='display: block'][data-gender='female']").show("slideUp");
+				$("div[style='display: block'][data-gender='male']").show("slideUp");
+			}
+		});
+
+		$("#filterAgeLow").on("blur", function() {
+			var ageLower = $("#filterAgeLow").val();
+			$("div[style='display: block'][data-age]").filter(function() {
+				if($(this).data("age") < ageLower) {
+					$(this).hide("slideUp");
+				} else {
+					$(this).show("slideUp");
+				}
+			});
+		});
+
+		$("#filterAgeHigh").on("blur", function() {
+			var ageHigher = $("#filterAgeHigh").val();
+			$("div[style='display: block'][data-age]").filter(function() {
+				if($(this).data("age") > ageHigher) {
+					$(this).hide("slideUp");
+				} else {
+					$(this).show("slideUp");
+				}
+			});
+		});
+
+		$("#filterHair").change(function() {
+			if( $("#filterHair").val() == "short" ) {
+				$("div[style='display: block'][data-hair='short']").show("slideUp");
+				$("div[style='display: block'][data-hair='long']").hide("slideUp");
+			} else if( $("#filterHair").val() == "long") {
+				$("div[style='display: block'][data-hair='long']").show("slideUp");
+				$("div[style='display: block'][data-hair='short']").hide("slideUp");
+			} else if( $("#filterHair").val() == "allHair") {
+				$("div[data-hair='short']").show("slideUp");
+				$("div[data-hair='long']").show("slideUp");
+			}
+		});
+
+		$("#filterBreed").change(function() {
+			var breedVal = $("#filterBreed").val().toLowerCase();
+			if(breedVal.length>0){
+				$("div[data-breed]").hide("slideUp");
+				var whatImLookingFor = "div[data-breed='"+breedVal+"']"
+				$(whatImLookingFor).show("slideUp");
+			} else {
+				$("div[data-breed]").show("slideUp");
+			}
+		});
+
+
+		$("#filterCostLow").on("blur", function() {
+			var costLower = $("#filterCostLow").val();
+			$("div[style='display: block'][data-cost]").filter(function() {
+				if($(this).data("cost") < costLower) {
+					$(this).hide("slideUp");
+				} else {
+					$(this).show("slideUp");
+				}
+			});
+		});
+
+		$("#filterCostHigh").on("blur", function() {
+			var costHigher = $("#filterCostHigh").val();
+			$("div[style='display: block'][data-cost]").filter(function() {
+				if($(this).data("cost") > costHigher) {
+					$(this).hide("slideUp");
+				} else {
+					$(this).show("slideUp");
+				}
+			});
+		});
+
+
+
+	}); //end of document.readys
+</script>
